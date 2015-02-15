@@ -24,3 +24,9 @@ a {
 div {
   text-align: center
 }
+
+.line {
+  fill: none;
+  stroke: black;
+  stroke-width: 3;
+}

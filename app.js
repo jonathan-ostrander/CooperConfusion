@@ -15,6 +15,8 @@ app.set('view engine', 'jade');
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(__dirname + '/public/favicon.ico'));
+var port = normalizePort(process.env.PORT || '3000');
+app.set('port', port);
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -68,5 +70,21 @@ app.use(function(err, req, res, next) {
 http.listen(3000, '0.0.0.0', function() {
  console.log('listening on *:3000');
 });
+
+function normalizePort(val) {
+  var port = parseInt(val, 10);
+
+  if (isNaN(port)) {
+    // named pipe
+    return val;
+  }
+
+  if (port >= 0) {
+    // port number
+    return port;
+  }
+
+  return false;
+}
 
 module.exports = app;
