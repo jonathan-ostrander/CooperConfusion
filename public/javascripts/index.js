@@ -2,6 +2,7 @@ var socket = io();
 
 socket.on('confusion', function(json){
   json.col -= 1;
+  json.row -= 1;
   json.time = (new Date() - t) / 1000;
   data.push(json);
   updateSeat(json);
